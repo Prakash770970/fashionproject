@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h2 class="text-center">Checkout</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="address" class="form-label">Shipping Address</label>
+        <textarea class="form-control" name="address" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+</body>
+{% endblock   %}
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  .cart-table th, .cart-table td {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+  }
+
+  .cart-summary h4 {
+    font-weight: bold;
+    color: #28a745;
+  }
+
+  .btn-checkout {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-checkout:hover {
+    background-color: #218838;
+  }
+
+  .empty-cart {
+    text-align: center;
+    color: #777;
+    padding: 50px 0;
+  }
+</style>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h2 class="text-center">Your Cart</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.product.price }}</td>
+            <td>₹{{ item.total_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h4>Total: ₹{{ total }}</h4>
+<a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+</body>
+{% endblock   %}
+</html>

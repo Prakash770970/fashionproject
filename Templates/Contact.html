@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .contact-section {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    }
+    .contact-info p i {
+        color: #0d6efd;
+        margin-right: 10px;
+    }
+    .contact-section h2 {
+        font-size: 2.2rem;
+    }
+</style>
+</head>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body>
+   <div class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Contact Us</h2>
+        <p class="text-muted">Have questions? We’d love to hear from you!</p>
+    </div>
+
+    <div class="row contact-section">
+        <div class="col-md-6 mb-4">
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Type your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary px-4">Send Message</button>
+            </form>
+        </div>
+
+        <div class="col-md-6 contact-info">
+            <h5 class="fw-bold mb-3">Our Store</h5>
+            <p><i class="bi bi-geo-alt-fill"></i> 1232326 Pinkman Street, India</p>
+            <p><i class="bi bi-telephone-fill"></i> +91 98765 43210</p>
+            <p><i class="bi bi-envelope-fill"></i> dark@123gmail.com</p>
+            <img src="{% static 'images/32.jpg' %}" class="img-fluid rounded mt-3" alt="Store Image">
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
+</html>

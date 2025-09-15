@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<body>
+  <section class="py-5 bg-light text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold text-primary">About Trendy Threads</h1>
+    <p class="lead">Fashion that defines you. Confidence stitched in every thread.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="{% static 'images/zayn.jpg' %}" alt="Fashion Team" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h2 class="mb-3 text-dark">Who We Are</h2>
+        <p>
+          At <strong>Trendy Threads</strong>, we believe fashion is a voice, and we help you speak it. Since our founding, we've focused on blending comfort, quality, and trend into every piece we craft. Whether it's streetwear or formal, every stitch is backed by passion.
+        </p>
+        <ul class="list-unstyled mt-3">
+          <li>✅ Premium Quality Clothing</li>
+          <li>✅ Ethically Sourced Materials</li>
+          <li>✅ Designed for All Genders & Styles</li>
+          <li>✅ Fast Delivery & Easy Returns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-dark text-light text-center">
+  <div class="container">
+    <h3 class="mb-3">Join the Trendsetters!</h3>
+    <p>Be part of a fashion-forward community that celebrates individuality.</p>
+    <a href="/" class="btn btn-outline-light btn-lg mt-3">Start Shopping</a>
+  </div>
+</section>
+</body>
+{% endblock %}
+</html>
