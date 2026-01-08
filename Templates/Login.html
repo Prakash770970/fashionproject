@@ -1,11 +1,69 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Login</h2>
+
+<style>
+  body {
+    background: #f4f4f9;
+  }
+
+  .login-container {
+    max-width: 420px;
+    margin: 70px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .login-title {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .login-sub {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+
+  .form-control {
+    height: 45px;
+    border-radius: 8px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+</style>
+
+<div class="login-container">
+
+  <h2 class="login-title">Welcome Back</h2>
+  <p class="login-sub">Please login to continue</p>
+
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Login</button>
+
+    <button type="submit" class="btn btn-primary login-btn">Login</button>
   </form>
+
 </div>
+
 {% endblock %}
